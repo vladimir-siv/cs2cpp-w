@@ -20,6 +20,7 @@ namespace Core
 		{
 			API.DisposeDevice(Handle);
 			Handle = Hndl.Invalid;
+			GC.SuppressFinalize(this);
 		}
 	}
 }

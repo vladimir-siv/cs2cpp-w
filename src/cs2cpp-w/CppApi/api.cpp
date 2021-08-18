@@ -1,6 +1,5 @@
 #include "api.h"
 
-#include <cstdio>
 #include <core/device.h>
 
 using namespace core;

@@ -12,8 +12,14 @@ namespace Core
 		public uint Activity => API.DeviceActivity(Handle);
 
 		public Device(uint limit) => Handle = API.CreateDevice(limit);
-		public void Dispose() => API.DisposeDevice(Handle);
+		~Device() => Dispose();
 
 		public bool Execute() => API.DeviceExecute(Handle);
+
+		public void Dispose()
+		{
+			API.DisposeDevice(Handle);
+			Handle = Hndl.Invalid;
+		}
 	}
 }
